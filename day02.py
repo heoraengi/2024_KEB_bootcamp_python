@@ -81,7 +81,7 @@ print(f'몫은 {quotient}, 나머지는 {remainder}')
 print(f'몫은 {divmod(first_number,second_number)[0]}, 나머지는 {divmod(first_number,second_number)[1]}')
 '''
 ### 진수표현법 ###
-
+'''
 dec = 65
 octal = 0o101
 hexadecimal = 0x41
@@ -89,3 +89,8 @@ binary = 0b01000001
 print(dec, octal, hexadecimal, binary) # 모두 65로 나옴
 print(chr(binary)) # A <- 아스키코드로 변환
 print(ord('A')) #  65 <- 숫자로 변환
+'''
+### 화씨 -> 섭씨 변환기 ###
+# (0°F − 32) × 5/9 = -17.78°C
+fahrenheit = float(input('Input Fahrenheit : '))
+print(f'Fahrenheit :{fahrenheit}F, Celsius{((fahrenheit - 32.0) * 5/9):.2f}C')
