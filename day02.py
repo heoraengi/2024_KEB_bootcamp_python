@@ -35,6 +35,7 @@ print(isinstance("inha", float)) # False
 print(isinstance(55, float)) # False
 '''
 ### 복사 ###
+'''
 artists = ['BTS', 'NewJeans', 'RISE', 'SES']
 groups = artists
 print(artists, groups)
@@ -43,9 +44,10 @@ artists[3] = 'aespa'
 print(artists, groups)
 # ['BTS', 'NewJeans', 'RISE', 'aespa'] ['BTS', 'NewJeans', 'RISE', 'aespa']
 # groups 변수는 artists 변수를 참조했으므로 서로 같은 주소를 바라보고 있어 artists가 바끼면 groups도 바뀐다.
-
+'''
 
 ####### 3장 숫자 #######
+'''
 money = 3,000,000 # 쉼표를 사용하면 변수타입이 tuple로 됨
 print(money) # (3, 0, 0)
 print(type(money)) # <class 'tuple'>
@@ -53,6 +55,7 @@ print(type(money)) # <class 'tuple'>
 cash = 3_000_000
 print(cash) # 3000000
 print(type(cash)) # <class 'int'>
+'''
 
 ### 입력 및 연산 및 출력 ###
 '''
@@ -68,7 +71,6 @@ print('밑은 {}, 지수는 {} 결과 값은 {}'.format(base_number,exponent_num
 
 # c like
 print('밑은 %d, 지수는 %d, 결과 값은 %d' % (base_number,exponent_number,pow(base_number, exponent_number)))
-'''
 
 first_number = int(input('First number : '))
 second_number = int(input('Second number : '))
@@ -77,3 +79,13 @@ remainder = first_number % second_number
 
 print(f'몫은 {quotient}, 나머지는 {remainder}')
 print(f'몫은 {divmod(first_number,second_number)[0]}, 나머지는 {divmod(first_number,second_number)[1]}')
+'''
+### 진수표현법 ###
+
+dec = 65
+octal = 0o101
+hexadecimal = 0x41
+binary = 0b01000001
+print(dec, octal, hexadecimal, binary) # 모두 65로 나옴
+print(chr(binary)) # A <- 아스키코드로 변환
+print(ord('A')) #  65 <- 숫자로 변환
