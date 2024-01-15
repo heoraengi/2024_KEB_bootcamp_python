@@ -55,6 +55,7 @@ print(cash) # 3000000
 print(type(cash)) # <class 'int'>
 
 ### 입력 및 연산 및 출력 ###
+'''
 base_number = int(input('Input base number : '))
 exponent_number = int(input('Input exponent number : '))
 # f-string
@@ -67,3 +68,12 @@ print('밑은 {}, 지수는 {} 결과 값은 {}'.format(base_number,exponent_num
 
 # c like
 print('밑은 %d, 지수는 %d, 결과 값은 %d' % (base_number,exponent_number,pow(base_number, exponent_number)))
+'''
+
+first_number = int(input('First number : '))
+second_number = int(input('Second number : '))
+quotient = first_number // second_number
+remainder = first_number % second_number
+
+print(f'몫은 {quotient}, 나머지는 {remainder}')
+print(f'몫은 {divmod(first_number,second_number)[0]}, 나머지는 {divmod(first_number,second_number)[1]}')
