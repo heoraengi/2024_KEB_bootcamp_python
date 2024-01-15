@@ -109,7 +109,10 @@ print(googol) # 1000000000000000000000000000000000000000000000000000000000000000
 # 값이 커질수록 메모리를 더 할당해주는 특징을 가지고 있다.
 '''
 
+####### 4장 if #######
+
 ### 화씨 -> 섭씨 변환기 ###
+'''
 # (0°F − 32) × 5/9 = -17.78°C
 # (0°C × 9/5) + 32 = 32°F
 menu = input("1) Fahrenheit -> Celsius  2) Celsius -> Fahrenheit    3) Quit program : ")
@@ -121,3 +124,16 @@ elif menu == '2':
     celsius = float(input('Input Celsius : '))
     print(f'Celsius :{celsius}F, Fahrenheit{((celsius*9.0/5.0)+32):.2f}C')
 
+else :
+    print('Terminate Program')
+'''
+
+### True or False ###
+# 0값이거나 원소가 존재하지 않는 것들은 False이다.
+temp = [] # False # 빔
+if temp : print("존재함")
+else : print ('빔')
+
+temp = [0] # True # 존재함
+if temp : print("존재함")
+else : print ('빔')
