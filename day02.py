@@ -129,6 +129,7 @@ else :
 '''
 
 ### True or False ###
+'''
 # 0값이거나 원소가 존재하지 않는 것들은 False이다.
 temp = [] # False # 빔
 if temp : print("존재함")
@@ -137,3 +138,15 @@ else : print ('빔')
 temp = [0] # True # 존재함
 if temp : print("존재함")
 else : print ('빔')
+'''
+
+### 여러개 비교하기 ###
+# 자음 모음 찾기
+letter = input('Input alphabet letter : ')
+vowels = {'a', 'e', 'i', 'o', 'u'}
+# vowels = "aeiou" # 문자열로도 가능!
+print(type(vowels)) # <class 'set'>
+if letter in vowels:
+    print(f'{letter} is a vowel~')
+else :
+    print(f'{letter} is a consonant~')
