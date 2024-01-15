@@ -90,7 +90,34 @@ print(dec, octal, hexadecimal, binary) # 모두 65로 나옴
 print(chr(binary)) # A <- 아스키코드로 변환
 print(ord('A')) #  65 <- 숫자로 변환
 '''
+
+### 진수 변환 (int 이용) ###
+'''
+print(int('10', 2)) # 2
+print(int('10', 8)) # 8
+print(int('10', 16)) # 16
+print(int('10', 22)) # 22
+print(int('1A', 16)) # 26
+'''
+
+### 파이썬 정수 오버플로우 ###
+'''
+googol = 10**100
+print(googol) # 10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+# 해당 변수는 이미 int가 담을 수 있는 공간을 넘어섰다.
+# 대부분이 언어는 정수 오버플로우가 발생하겠지만 파이썬의 경우 문제없이 아주 큰 정수를 처리해준다.
+# 값이 커질수록 메모리를 더 할당해주는 특징을 가지고 있다.
+'''
+
 ### 화씨 -> 섭씨 변환기 ###
 # (0°F − 32) × 5/9 = -17.78°C
-fahrenheit = float(input('Input Fahrenheit : '))
-print(f'Fahrenheit :{fahrenheit}F, Celsius{((fahrenheit - 32.0) * 5/9):.2f}C')
+# (0°C × 9/5) + 32 = 32°F
+menu = input("1) Fahrenheit -> Celsius  2) Celsius -> Fahrenheit    3) Quit program : ")
+if menu == '1':
+    fahrenheit = float(input('Input Fahrenheit : '))
+    print(f'Fahrenheit :{fahrenheit}F, Celsius{((fahrenheit - 32.0) * 5/9):.2f}C')
+
+elif menu == '2':
+    celsius = float(input('Input Celsius : '))
+    print(f'Celsius :{celsius}F, Fahrenheit{((celsius*9.0/5.0)+32):.2f}C')
+
