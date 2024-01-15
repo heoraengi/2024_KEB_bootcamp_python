@@ -1,4 +1,4 @@
-### 2장 데이터 ###
+####### 2장 데이터 #######
 '''
 print(0.1, 1e-1)
 print(0.01, 1e-2)
@@ -43,3 +43,18 @@ artists[3] = 'aespa'
 print(artists, groups)
 # ['BTS', 'NewJeans', 'RISE', 'aespa'] ['BTS', 'NewJeans', 'RISE', 'aespa']
 # groups 변수는 artists 변수를 참조했으므로 서로 같은 주소를 바라보고 있어 artists가 바끼면 groups도 바뀐다.
+
+
+####### 3장 숫자 #######
+money = 3,000,000 # 쉼표를 사용하면 변수타입이 tuple로 됨
+print(money) # (3, 0, 0)
+print(type(money)) # <class 'tuple'>
+
+cash = 3_000_000
+print(cash) # 3000000
+print(type(cash)) # <class 'int'>
+
+### 입력 및 연산 ###
+base_number = int(input('Input base number : '))
+exponent_number = int(input('Input exponent number : '))
+print(f'밑은 {base_number}, 지수는 {exponent_number}, 결과 값은 {base_number**exponent_number}')
