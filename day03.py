@@ -183,6 +183,7 @@ print("{0[python]} {0[data structure]}".format(subjects)) # kim kim
 '''
 
 ### prime number ###
+'''
 number = int(input("Input number : "))
 is_prime = True
 
@@ -200,4 +201,21 @@ else :
         print(f'{number} is prime number')
     else :
         print(f'{number} is not prime number')
+'''
 
+univ = "inha"
+i = 0
+while i < len(univ):
+    print(univ[i], end=' ')
+    i += 1
+
+print()
+
+for letter in univ :
+    print(letter, end=' ')
+
+print()
+
+# for k in range(0,len(univ),1):
+for k in range(len(univ)) :
+    print(univ[k], end=' ')
