@@ -138,7 +138,6 @@ if subjects.find(subject) != -1 :
     print(f'해당 과목은 존재합니다. 위치는 {subjects.find(subject)}번 인덱스입니다.')
 else :
     print("해당 과목이 존재하지 않습니다.")
-'''
 
 # index 예외처리
 subjects="python c++ database linux"
@@ -147,5 +146,33 @@ try :
     print(f'해당 과목은 존재합니다. 위치는 {subjects.index(subject)}번 인덱스입니다.')
 except ValueError :
     print("해당 과목이 존재하지 않습니다.")
+'''
+### isalnum() : 문자열이 알파벳이나 숫자로 이루어져있는지 확인 ###
+'''
+subjects="python c++ database linux"
+print(subjects.isalnum()) # False
+subjects="pythoncdatabaselinux"
+print(subjects.isalnum()) # True
+subjects="pythoncdata1231456baselinux"
+print(subjects.isalnum()) # True
+subjects="pythoncdata1231456!!!baselinux"
+print(subjects.isalnum()) # False
+'''
 
+### 대소문자 ###
+'''
+subjects.capitalize() # 문장 맨 앞글자만 대문자
+subjects.title() # 단어 앞글자만 대문자
+subjects.upper() # 모두 대문자
+subjects.lower() # 모두 소문자
+subjects.swapcase() # 대문자 소문자 반대로
+'''
 
+### 문자 정렬 ###
+'''
+subjects.center(50) # 지정공간에서 문자열 중앙 정렬
+subjects.ljust(50) # 지정공간에서 문자열 왼쪽 정렬
+subjects.rjust(50) # 지정공간에서 문자열 오른쪽 정렬
+'''
+
+###
