@@ -175,4 +175,23 @@ subjects.ljust(50) # 지정공간에서 문자열 왼쪽 정렬
 subjects.rjust(50) # 지정공간에서 문자열 오른쪽 정렬
 '''
 
-###
+### 딕셔너리의 format() 출력 ###
+'''
+subjects = {'python' : 'kim', 'c++' : 'sung', 'data structure' : 'kim', 'database' : 'kang'}
+print("{0[python]} {0[data structure]}".format(subjects)) # kim kim
+# format이 가지고 있는게 0번밖에 없는데 거기서 키값을 가지고 해당 value값을 출력 한다!
+'''
+
+### prime number ###
+number = int(input("Input number : "))
+cnt = 0
+i = 1
+while i <= number:
+    if number % i == 0 :
+        cnt +=1
+    i +=1
+
+if cnt == 2 :
+    print(f'{number} is prime number')
+else :
+    print(f'{number} is not prime number')
