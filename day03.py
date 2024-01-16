@@ -202,7 +202,8 @@ else :
     else :
         print(f'{number} is not prime number')
 '''
-
+### for ###
+'''
 univ = "inha"
 i = 0
 while i < len(univ):
@@ -219,3 +220,41 @@ print()
 # for k in range(0,len(univ),1):
 for k in range(len(univ)) :
     print(univ[k], end=' ')
+'''
+### prime number - for문 ###
+'''
+number = int(input("Input number : "))
+is_prime = True
+
+if number < 2 :
+    print(f'{number} is not prime number')
+else :
+    for i in range(2,number) :
+        if number % i == 0 :
+            is_prime = False
+            break
+
+    if is_prime :
+        print(f'{number} is prime number')
+    else :
+        print(f'{number} is not prime number')
+'''
+### prime number - for문.ver2 ###
+numbers = input("Input First Second number : ").split()
+#n1, n2 = int(numbers[0]), int(numbers[1])
+numbers = [int(n) for n in numbers]
+n1, n2 = min(numbers), max(numbers)
+
+is_prime = True
+for number in range(n1,n2+1) :
+    is_prime = True
+
+    if number < 2:
+        pass
+    else:
+        for i in range(2, number):
+            if number % i == 0:
+                is_prime = False
+                break
+        if is_prime :
+            print(number, end=' ')
