@@ -1,5 +1,5 @@
 ##### 과제 1 #####
-
+'''
 while True :
     menu = input("1) Fahrenheit -> Celsius  2) Fahrenheit -> Celsius 3) Prime number 4) Range Prime number  5) Quit program : ")
 
@@ -54,3 +54,52 @@ while True :
         break
     else:
         print("choose number 1 ~ 5!")
+'''
+
+##### 과제 2_6-1 #####
+'''
+# 6-1 ver.1
+num = list(range(4))
+num.sort(reverse=True)
+for n in num :
+    print(n, end=' ')
+
+# 6-1 ver.2
+n = 3
+for i in range(n+1) :
+    print(n-i, end=' ')
+
+# 6-1 ver.3
+for i in range(3,-1,-1):
+    print(i, end=' ')
+'''
+##### 과제 2_6-2 #####
+'''
+guess_me = 7
+number = 1
+
+while True :
+    if number < guess_me :
+        print('too low')
+    elif number == guess_me :
+        print('found it!')
+        break
+    else :
+        print('opps')
+        break
+    number += 1
+'''
+##### 과제 2_6-3 #####
+'''
+guess_me = 5
+
+for number in range(10) :
+    if number < guess_me:
+        print('too low')
+    elif number == guess_me:
+        print('found it!')
+        break
+    else:
+        print('opps')
+        break
+'''
