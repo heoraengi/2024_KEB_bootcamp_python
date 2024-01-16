@@ -241,9 +241,11 @@ else :
 '''
 ### prime number - for문.ver2 ###
 numbers = input("Input First Second number : ").split()
-#n1, n2 = int(numbers[0]), int(numbers[1])
-numbers = [int(n) for n in numbers]
-n1, n2 = min(numbers), max(numbers)
+n1, n2 = int(numbers[0]), int(numbers[1])
+if n1 > n2 :
+    n1, n2 = n2, n1
+# numbers = [int(n) for n in numbers]
+# n1, n2 = min(numbers), max(numbers)
 
 is_prime = True
 for number in range(n1,n2+1) :
