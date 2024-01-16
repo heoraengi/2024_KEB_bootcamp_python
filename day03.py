@@ -189,6 +189,7 @@ i = 2
 while i < number:
     if number % i == 0 :
         cnt +=1
+        break
     i +=1
 
 if not cnt :
