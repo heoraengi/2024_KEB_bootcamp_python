@@ -120,7 +120,7 @@ print(course.strip("!#.*")) # KEB 2024# !KEB BootCamp KEB
 
 ### find(), index() ###
 ''''''
-course = "* KEB 2024# !KEB BootCamp KEB...*!#"
+course = "* KEB 2024# KEB !BootCamp KEB...*!#"
 print(course.find('KEB')) # 2 <- 앞에서부터 찾은 KEB의 첫번째 글자 인덱스 반환
 print(course.rfind('KEB')) # 26  <- 뒤에서부터 찾은 KEB의 첫번째 글자 인덱스 반환
 print(course[2]) # K
@@ -128,7 +128,17 @@ print(course[26]) # K
 print(course.index('KEB')) # find랑 동일
 print(course.rindex('KEB')) # rfind랑 동일
 print(course.find('Inha')) # -1 # 찾는 값이 없으면 -1 리턴
-print(course.index('Inha')) # ValueError: substring not found
+# print(course.index('Inha')) # ValueError: substring not found
 # index 함수는 값는 값이 없으면 예외를 던진다.
+
+subjects="python c++ database linux"
+subject = input("수강신청과목 입력 : ")
+if subjects.find(subject) != -1 :
+    print(f'해당 과목은 존재합니다. 위치는 {subjects.find(subject)}번 인덱스입니다.')
+else :
+    print("해당 과목이 존재하지 않습니다.")
+
+
+
 
 
