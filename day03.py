@@ -48,6 +48,7 @@ print(number1+number2) # 74 # concatenation <- 두 입력을 문자로 받았기
 print(number1 * 3) # 777 # 반복시킨다!
 # print(number1 + 3) # 더하기는 숫자타입만 가능 # TypeError: can only concatenate str (not "int") to str
 '''
+'''
 ### 슬라이싱 ###
 univ = "Inha\nUniversity!"
 print(univ[:4]) # Inha
@@ -56,3 +57,28 @@ print(univ[:-12]) # Inha
 print(univ[::2])
 # Ih
 #nvriy
+'''
+'''
+### split() ###
+# defalut 값은 ' '으로 되어있음
+# 다른 구분점을 주고 싶으면 ()안에 원하는 값을 넣으면 됨
+course = "2024 KEB BootCamp"
+print(course)
+list_course = course.split()
+print(list_course)
+
+course = "2024 KEB Bootcamp"
+print(course)
+list_course = course.split('B')
+print(list_course)
+
+# input구문을 두개 쓰지 않고 split을 활용해 한번에 받는다!
+numbers = input("FirstNumber  SecondNumber : ").split() # 9 7
+print(numbers[0]+numbers[1]) # 97 # concatenation
+print(int(numbers[0])+int(numbers[1])) #16 # arithmetic operation : 산술 연산
+'''
+
+### join() ###
+subjects = ['python', 'c++', 'database']
+subjects_string = " / ".join(subjects)
+print(subjects_string) # python / c++ / database
