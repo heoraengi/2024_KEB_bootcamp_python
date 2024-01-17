@@ -143,18 +143,7 @@ print(subjects,a,b,c,d,e)
 '''
 
 ### List Comprehension ###
-# squares = list()
-# squares.append(1*1)
-# squares.append(2*2)
-# squares.append(3*3)
-# squares.append(4*4)
-# squares.append(5*5)
-
-# squares = list()
-# for i in range(1,6):
-#     squares.append(i*i)
-# print(squares)
-
+'''
 squares = [n*n for n in range(1,6)]
 print(squares)
 
@@ -165,3 +154,30 @@ print(cells) # [(1, 1), (1, 2), (2, 1), (2, 2), (3, 1), (3, 2)
 
 thing = (n for n in range(1,6)) # 제너레이터 컴프리헨션
 print(thing) # <generator object <genexpr> at 0x000001C99A0A9BD0>
+'''
+####### 8장 딕셔너리 #######
+### dict ###
+'''
+sugang = dict(python='kim', cpp='sung', db='kang')
+print(sugang)
+sugang['datastructure'] = 'kim' # add
+print(sugang)
+sugang['datastructure'] = 'park' # update
+print(sugang['db'])
+print(sugang.get('db'))
+print(sugang.get('opensource')) # None : 존재하지 않는 키를 넣으면 None이 나옴
+print(sugang.get('opensource', 'no exist')) # no exist  # 옵션으로 문구를 넣을 수 있음
+'''
+# 3.6버전 이전 dict은 순서 개념이 없어서 랜덤하게 출력됐음
+sugang = dict(python='kim', cpp='sung', db='kang')
+for suject, professor in sugang.items() :
+    print(f'{suject} 과목 담당교수는 {professor}입니다')
+
+for k in sugang.keys(): # or for k in sugang.keys()
+    print(k)
+
+for v in sugang.values():
+    print(v)
+
+for s in sugang.items():
+    print(s) # 튜플형태로 출력
