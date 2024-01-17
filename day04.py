@@ -95,6 +95,7 @@ subjects.clear() # 안에 있는 내용 전부 삭제
 # subjects = ["c++","java", "ptyhon", "java"]
 # subjects = ["c++","java", 5,"ptyhon",7, "java"]
 # list안에 type이 다르면 정렬 불가 ( 근데 int랑 float랑 같이 있는 건 됨)
+'''
 subjects = ["c++","데이터베이스","java", "5","ptyhon","7", "java"]
 subjects.sort()
 print(subjects) # ['5', '7', 'c++', 'java', 'java', 'ptyhon', '데이터베이스'] # 숫자 ,영어, 한글 순
@@ -102,3 +103,41 @@ subjects.sort(reverse=True)
 print(subjects)
 copy_subjects = sorted(subjects)
 print(copy_subjects)
+'''
+
+### copy(), deepcopy() ###
+'''
+subjects = ["a", "b", "c"]
+a = subjects # 할당이라서 subjects 변수랑 같은 곳을 가르킴
+b = subjects.copy()
+c = list(subjects)
+d = subjects[:]
+print(subjects,a,b,c,d) # ['a', 'b', 'c'] ['a', 'b', 'c'] ['a', 'b', 'c'] ['a', 'b', 'c'] ['a', 'b', 'c']
+subjects[1] = "x"
+print(subjects,a,b,c,d) # ['a', 'x', 'c'] ['a', 'x', 'c'] ['a', 'b', 'c'] ['a', 'b', 'c'] ['a', 'b', 'c']
+
+subjects = ["a", ["b", "c"], "d"]
+a = subjects
+b = subjects.copy()
+c = list(subjects)
+d = subjects[:]
+print(subjects,a,b,c,d)
+# ['a', ['b', 'c'], 'd'] ['a', ['b', 'c'], 'd'] ['a', ['b', 'c'], 'd'] ['a', ['b', 'c'], 'd'] ['a', ['b', 'c'], 'd']
+subjects[1][1] = "x" # <- 이렇게 mutable한 리스트 값을 바꾸기 때문에 전부 바뀜
+print(subjects,a,b,c,d)
+# ['a', ['b', 'x'], 'd'] ['a', ['b', 'x'], 'd'] ['a', ['b', 'x'], 'd'] ['a', ['b', 'x'], 'd'] ['a', ['b', 'x'], 'd']
+
+import copy
+subjects = ["a", ["b", "c"], "d"]
+a = subjects
+b = subjects.copy()
+c = list(subjects)
+d = subjects[:]
+e = copy.deepcopy(subjects)
+print(subjects,a,b,c,d,e)
+# ['a', ['b', 'c'], 'd'] ['a', ['b', 'c'], 'd'] ['a', ['b', 'c'], 'd'] ['a', ['b', 'c'], 'd'] ['a', ['b', 'c'], 'd'] ['a', ['b', 'c'], 'd']
+subjects[1][1] = "x" # <- 이렇게 mutable한 리스트 값을 바꾸기 때문에 전부 바뀜
+print(subjects,a,b,c,d,e)
+# ['a', ['b', 'x'], 'd'] ['a', ['b', 'x'], 'd'] ['a', ['b', 'x'], 'd'] ['a', ['b', 'x'], 'd'] ['a', ['b', 'x'], 'd'] ['a', ['b', 'c'], 'd']
+# deepcopy한 부분만 새로운 메모리를 할당 받아서 값이 변하지 않음
+'''
