@@ -141,3 +141,27 @@ print(subjects,a,b,c,d,e)
 # ['a', ['b', 'x'], 'd'] ['a', ['b', 'x'], 'd'] ['a', ['b', 'x'], 'd'] ['a', ['b', 'x'], 'd'] ['a', ['b', 'x'], 'd'] ['a', ['b', 'c'], 'd']
 # deepcopy한 부분만 새로운 메모리를 할당 받아서 값이 변하지 않음
 '''
+
+### List Comprehension ###
+# squares = list()
+# squares.append(1*1)
+# squares.append(2*2)
+# squares.append(3*3)
+# squares.append(4*4)
+# squares.append(5*5)
+
+# squares = list()
+# for i in range(1,6):
+#     squares.append(i*i)
+# print(squares)
+
+squares = [n*n for n in range(1,6)]
+print(squares)
+
+rows = list(range(1,4))
+cols = list(range(1,3))
+cells = [(row, col)for row in rows for col in cols]
+print(cells) # [(1, 1), (1, 2), (2, 1), (2, 2), (3, 1), (3, 2)
+
+thing = (n for n in range(1,6)) # 제너레이터 컴프리헨션
+print(thing) # <generator object <genexpr> at 0x000001C99A0A9BD0>
