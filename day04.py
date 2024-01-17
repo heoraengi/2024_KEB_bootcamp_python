@@ -71,3 +71,34 @@ t11 = t11 + t12 # 할당된 후 아이디가 달라짐 <- 왜냐하면 튜플은
 print(t11) # (4.43, 3.97, 4.1, 3.2)
 print(id(t11)) # 1714977045488
 '''
+
+### reverse() ###
+'''
+subjects = ["c++", "ptyhon", "java"]
+# subjects.reverse() # 원복이 그대로 바뀜
+subjects = subjects[::-1] # subjects.reserve()
+print(subjects)
+'''
+
+### del, remove(), pop(), clear() ###
+'''
+subjects = ["c++","java", "ptyhon", "java"]
+# subjects.remove("java") # 동일한 값이 있다면 이렇게 하면 제일 첫번째 나오는"java"만 지움
+del subjects[3] # del 명령어를 이용해 원하는 걸 선택해서 지울 수 있음
+print(subjects)
+subjects.pop() # 숫자를 입력하지 않으면 제일 뒤에 있는 값이 빠져나옴
+print(subjects)
+subjects.clear() # 안에 있는 내용 전부 삭제
+'''
+
+### sort(), sorted() ###
+# subjects = ["c++","java", "ptyhon", "java"]
+# subjects = ["c++","java", 5,"ptyhon",7, "java"]
+# list안에 type이 다르면 정렬 불가 ( 근데 int랑 float랑 같이 있는 건 됨)
+subjects = ["c++","데이터베이스","java", "5","ptyhon","7", "java"]
+subjects.sort()
+print(subjects) # ['5', '7', 'c++', 'java', 'java', 'ptyhon', '데이터베이스'] # 숫자 ,영어, 한글 순
+subjects.sort(reverse=True)
+print(subjects)
+copy_subjects = sorted(subjects)
+print(copy_subjects)
