@@ -167,7 +167,7 @@ print(sugang['db'])
 print(sugang.get('db'))
 print(sugang.get('opensource')) # None : 존재하지 않는 키를 넣으면 None이 나옴
 print(sugang.get('opensource', 'no exist')) # no exist  # 옵션으로 문구를 넣을 수 있음
-'''
+
 # 3.6버전 이전 dict은 순서 개념이 없어서 랜덤하게 출력됐음
 sugang = dict(python='kim', cpp='sung', db='kang')
 for suject, professor in sugang.items() :
@@ -181,3 +181,48 @@ for v in sugang.values():
 
 for s in sugang.items():
     print(s) # 튜플형태로 출력
+'''
+
+### 주류와 안주 추천 메뉴 ###
+'''
+import random
+drinks_food = {"위스키" : "초콜릿", "와인" : "치즈", "소주" : "삼겹살", "고량주" : "양꼬치"}
+#drinks_food["사케"] = "광어회"
+japan_drinks_foods = {"사케" : "광어회", "위스키" : "낙곱새"}
+drinks_food.update(japan_drinks_foods)
+drink_options = ' '.join([f"{i}) {drink}" for i, drink in enumerate(drinks_food.keys(), 1)])
+drinks_food_keys = list(drinks_food)
+while True :
+    menu = int(input(f'다음 술 중에 고르시오.  \n{drink_options} 6) 아무거나 7) 종료 : '))
+    #menu = int(input(f'다음 술 중에 고르시오.  \n{[n for n in drinks_food.keys()]} : '))
+    if menu == 1:
+        print(f'{drinks_food_keys[menu-1]}에 어울리는 안주는 {drinks_food[drinks_food_keys[menu-1]]} 입니다.')
+    elif menu == 2:
+        print(f'{drinks_food_keys[menu-1]}에 어울리는 안주는 {drinks_food[drinks_food_keys[menu-1]]} 입니다.')
+    elif menu == 3:
+        print(f'{drinks_food_keys[menu-1]}에 어울리는 안주는 {drinks_food[drinks_food_keys[menu-1]]} 입니다.')
+    elif menu == 4:
+        print(f'{drinks_food_keys[menu - 1]}에 어울리는 안주는 {drinks_food[drinks_food_keys[menu - 1]]} 입니다.')
+    elif menu == 5:
+        print(f'{drinks_food_keys[menu - 1]}에 어울리는 안주는 {drinks_food[drinks_food_keys[menu - 1]]} 입니다.')
+    elif menu == 6 :
+        random_drink = random.choice(drinks_food_keys)
+        print(f'{random_drink}에 어울리는 안주는 {drinks_food[random_drink]} 입니다.')
+    elif menu == 7 :
+        print(f'다음에 또 오세요~')
+        break
+    else :
+        print('1~7 중에서 입력하세요!')
+'''
+
+### 결합하기 ###
+'''
+first = {'a' : 'apple', 'b':'banana'}
+second = {'b':'bear', 'c':'candy'}
+print({**first,**second}) # {'a': 'apple', 'b': 'bear', 'c': 'candy'}
+'''
+
+### pop() ###
+drinks_food = {"위스키" : "초콜릿", "와인" : "치즈", "소주" : "삼겹살", "고량주" : "양꼬치"}
+print(drinks_food.pop('고량주')) # 양꼬치
+print(drinks_food) # {'위스키': '초콜릿', '와인': '치즈', '소주': '삼겹살'}
