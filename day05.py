@@ -141,6 +141,8 @@ def run_function(f, number):
 print(squares(7))
 print(run_function(squares, 9))
 '''
+
+'''
 def squares(*n) -> list:
     """
     넘겨받은 튜플 데이터를 거듭제곱하는 함수
@@ -154,3 +156,26 @@ def run_function(f, *number) -> list:
 
 print(squares(7,5,2))
 print(run_function(squares, 9,5,2))
+'''
+'''
+# 일반적인 inner 함수
+def out_func(nout):
+    def inner_func(nin):
+        return nin * nin
+    return inner_func(nout)
+
+print(out_func(5)) # 25
+
+# closure 함수 = 동적 함수
+def out_func(nout):
+    def inner_func():
+        return nout * nout
+    return inner_func
+
+x = out_func(5)
+print(x) # <function out_func.<locals>.inner_func at 0x000002575E823E20> <- 내부 함수의 메모리 주소를 출력
+# 바깥쪽 함수의 매개변수를 직접 받을 수 있다.
+print(type(x)) # <class 'function'>
+print(x())# 25 <- 제대로 출력하고 싶으면 ()를 넣어줘야함
+'''
+
