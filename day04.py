@@ -17,7 +17,6 @@ for number in range(n1,n2+1) :
         # while i < math.sqrt(number)+1 :
         while i*i <= number :
             if number % i == 0:
-                is_prime = False
                 break
             i += 1
             # print(i, end=', ')
