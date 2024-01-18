@@ -236,6 +236,8 @@ while True :
         break
     else:
         print("choose number 1 ~ 5!")
+
+'''
 '''
 def squares(n):
     return n*n
@@ -247,3 +249,57 @@ print(tuple(map(squares, even_numbers)))
 print(tuple(map(lambda x:x*2, even_numbers)))
 z = lambda x : pow(x,2)
 print(tuple(map(z, even_numbers)))
+'''
+
+### 제너레이터
+'''
+def my_range(first=0,last=5,step=1):
+    number = first
+    while number < last :
+        yield number
+        number+= step
+
+r = my_range()  # 제너레이터 생성
+print(r,type(r))
+
+for x in r :
+    print(x)
+
+for x in r :
+    print(x)
+    # 제너레이터는 메모리에 저장되는게 아니기 때문에 이미 앞에서 한번 사용을 해서 출력이 되지 않는다.
+'''
+
+### decorator ###
+def description(f):  # closure
+    def inner(*args):
+        print(f.__name__)
+        print(f.__doc__)
+        r = f(*args)
+        return r
+
+    return inner
+
+
+def squares(n):
+    """
+    제곱 함수
+    """
+    return n * n
+
+@description
+def power(b, e):
+    """
+    거듭제곱 함수
+    """
+    result = 1
+    for _ in range(e):
+        result = result * b
+    return result
+
+
+f1 = description(squares)
+print(f1(9))
+print(power(2, 10))
+# f2 = description(power)
+# print(f2(2, 10))
