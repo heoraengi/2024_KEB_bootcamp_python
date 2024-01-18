@@ -180,6 +180,7 @@ print(x())# 25 <- 제대로 출력하고 싶으면 ()를 넣어줘야함
 '''
 
 ### map 사용법 ###
+'''
 numbers = ["7",'1','2']
 m = sum(map(int,numbers))
 print(m)
@@ -235,3 +236,14 @@ while True :
         break
     else:
         print("choose number 1 ~ 5!")
+'''
+def squares(n):
+    return n*n
+
+### lambda ###
+even_numbers = [n for n in range(101) if n%2==0]
+print(even_numbers)
+print(tuple(map(squares, even_numbers)))
+print(tuple(map(lambda x:x*2, even_numbers)))
+z = lambda x : pow(x,2)
+print(tuple(map(z, even_numbers)))
