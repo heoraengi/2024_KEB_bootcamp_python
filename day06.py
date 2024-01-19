@@ -222,6 +222,35 @@ print(Hinny.__mro__) # 족보의 우선순위를 보여줌
 # (<class '__main__.Hinny'>, <class '__main__.Horse'>, <class '__main__.Donkey'>, <class '__main__.Animal'>, <class 'object'>)
 # 자기자신 - 첫번째 상속 - 두번째 상속 - 상속받은 클래스의 부모 클래스
 '''
+'''
+class FlyingMixin:
+    def fly(self):
+        return f'{self.name}이(가) 날다~'
+
+class SwimmingMixin:
+    def swim(self):
+        return f'{self.name}이(가) 수영을 합니다~'
+
+class Pokemon:
+    def __init__(self, name):
+        self.name = name
+    def attack(self):
+        print('공격!')
+
+class Charizard(Pokemon, FlyingMixin):
+    pass
+
+class Gyarados(Pokemon, SwimmingMixin):
+    pass
+
+g1 = Gyarados('갸라도스')
+c1 = Charizard('리자몽')
+print(g1.swim()) # 갸라도스이(가) 수영을 합니다~
+print(c1.fly()) # 리자몽이(가) 날다~
+c1.attack()
+# Charizard.attack() # self가 와줘야하니깐 괄호 안에 괄호 안에 들어가줘야 함
+Charizard.attack(c1)
+'''
 
 class FlyingMixin:
     def fly(self):
@@ -234,6 +263,8 @@ class SwimmingMixin:
 class Pokemon:
     def __init__(self, name):
         self.name = name
+    def attack(self):
+        print('공격!')
 
 class Charizard(Pokemon, FlyingMixin):
     pass
@@ -243,5 +274,6 @@ class Gyarados(Pokemon, SwimmingMixin):
 
 g1 = Gyarados('갸라도스')
 c1 = Charizard('리자몽')
-print(g1.swim()) # 갸라도스이(가) 수영을 합니다~
-print(c1.fly()) # 리자몽이(가) 날다~
+print(g1.name) # 갸라도스
+g1.name = "잉어킹"
+print(g1.name) # 잉어킹
