@@ -265,6 +265,12 @@ class Pokemon:
         self.name = name
     def attack(self):
         print('공격!')
+    def get_name(self):
+        print("inside getter")
+        return self.name
+    def set_name(self, new_name):
+        print("insid setter")
+        self.name = new_name
 
 class Charizard(Pokemon, FlyingMixin):
     pass
@@ -274,6 +280,14 @@ class Gyarados(Pokemon, SwimmingMixin):
 
 g1 = Gyarados('갸라도스')
 c1 = Charizard('리자몽')
-print(g1.name) # 갸라도스
-g1.name = "잉어킹"
-print(g1.name) # 잉어킹
+# print(g1.name) # 갸라도스
+# g1.name = "잉어킹"
+# print(g1.name) # 잉어킹
+print(g1.get_name())
+# inside getter
+# 갸라도스
+g1.set_name("잉어킹")
+# insid setter
+print(g1.get_name())
+# inside getter
+# 잉어킹
