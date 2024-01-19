@@ -33,18 +33,17 @@ def test(f) :
     :param f: function
     :return: closer function
     """
-    def test_in(*args, **kwargs):
+    #def test_in(*args, **kwargs):
+    def test_in():
         print('start')
-        result = f(*args, **kwargs)
+        f()
         print('end')
-        return result
+        # return result
     return test_in
 
-
+@test
 def greeting():
     print("안녕하세요!!!")
 
-
-t =test(greeting)
-t()
+greeting()
 
