@@ -82,7 +82,7 @@ print(globals())
 # 반복문은 속도가 빠름
 # 대신 재귀함수는 변수를 줄일 수 있음 :  side_effect을 막을 수 있음
 '''
-
+'''
 import random
 # numbers = list()
 # for i in range(5):
@@ -113,3 +113,39 @@ except Exception as err : # 모든 에러 다 잡아줌. 그래서 이건 맨 �
     print(f"Error occurs\n{err}")
 else :
     print(f'Program terminate')
+'''
+'''
+def desc():
+    def wrapper():
+        print('w')
+    print('a')
+    return wrapper
+desc() # a
+# wrapper 함수에 던져진게 없으므로 나오는게 없음 그래서 'w' 출력 안됨
+
+def desc(f):
+    def wrapper():
+        print('w')
+        f()
+    #print('a')
+    return wrapper
+def something():
+    print('do something')
+
+d = desc(something)
+d()
+# 출력결과
+# w
+# do something
+'''
+
+########## 객체 ##########
+#class Pokemon():
+class Pokemon: # () 제외해도 됨, ()있는데 올드한 방식
+    def __init__(self, name):
+        self.name = name
+        print(f"{name} : 포켓몬스터 생성")
+
+pikachu = Pokemon('피카츄')
+squirtle = Pokemon('꼬부기')
+
