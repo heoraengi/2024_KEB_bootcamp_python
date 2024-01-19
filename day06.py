@@ -90,20 +90,26 @@ import random
 #
 # print(numbers)
 
+class OopsException(Exception):
+    pass
+
 numbers =  [random.randint(1,100) for _ in range(5)]
 print(numbers)
 
 try :
     pick = int(input(f'Input index ( 0 ~ {len(numbers)-1} ): '))
     print(numbers[pick])
-    print(5/0)
+    print(5/2)
+    raise OopsException("!Oops!") # 예외 강제로 발생
 except IndexError as err:
     print(f"Out of range : Wrong index number\n{err}")
 except ValueError as err:
-    print(f"Input Only Number\n{err}")
+    print(f"Input only Number\n{err}")
 except ZeroDivisionError as err :
     print(f'The denominator cannot be 0.\n{err}')
+except OopsException as err:
+    print(f'Oops Oops {err}')
 except Exception as err : # 모든 에러 다 잡아줌. 그래서 이건 맨 마지막에 넣어줘야 함
     print(f"Error occurs\n{err}")
-
-
+else :
+    print(f'Program terminate')
