@@ -140,12 +140,20 @@ d()
 '''
 
 ########## 객체 ##########
-#class Pokemon():
-class Pokemon: # () 제외해도 됨, ()있는데 올드한 방식
-    def __init__(self, name):
+class Pokemon:
+    def __init__(self, name): # 이거 안에 new()가 있음
         self.name = name
         print(f"{name} : 포켓몬스터 생성")
 
-pikachu = Pokemon('피카츄')
-squirtle = Pokemon('꼬부기')
+    def attack(self, target):
+        print(f"{self.name}이(가) {target.name}을(를) 공격!")
 
+pikachu = Pokemon("피카츄")
+squirtle = Pokemon("꼬부기")
+charizard = Pokemon("리자몽")
+charizard.attack(squirtle)
+# 출력 결과
+# 피카츄 : 포켓몬스터 생성
+# 꼬부기 : 포켓몬스터 생성
+# 리자몽 : 포켓몬스터 생성
+# 리자몽 이(가) 꼬부기 을(를) 공격!
