@@ -9,6 +9,7 @@ def good():
 
 print(good())
 '''
+import random
 
 '''
 def get_odds(n) -> int:
@@ -50,7 +51,7 @@ def greeting():
 
 greeting()
 '''
-
+'''
 # 반복문 사용
 def factorial_repetition(n)-> int:
     """
@@ -80,3 +81,29 @@ print(factorial_recursion(number))
 print(globals())
 # 반복문은 속도가 빠름
 # 대신 재귀함수는 변수를 줄일 수 있음 :  side_effect을 막을 수 있음
+'''
+
+import random
+# numbers = list()
+# for i in range(5):
+#     numbers.append(random.randint(1,100))
+#
+# print(numbers)
+
+numbers =  [random.randint(1,100) for _ in range(5)]
+print(numbers)
+
+try :
+    pick = int(input(f'Input index ( 0 ~ {len(numbers)-1} ): '))
+    print(numbers[pick])
+    print(5/0)
+except IndexError as err:
+    print(f"Out of range : Wrong index number\n{err}")
+except ValueError as err:
+    print(f"Input Only Number\n{err}")
+except ZeroDivisionError as err :
+    print(f'The denominator cannot be 0.\n{err}')
+except Exception as err : # 모든 에러 다 잡아줌. 그래서 이건 맨 마지막에 넣어줘야 함
+    print(f"Error occurs\n{err}")
+
+
