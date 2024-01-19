@@ -140,6 +140,7 @@ d()
 '''
 
 ########## 객체 ##########
+'''
 class Pokemon:
     def __init__(self, name): # 이거 안에 new()가 있음
         self.name = name
@@ -157,3 +158,65 @@ charizard.attack(squirtle)
 # 꼬부기 : 포켓몬스터 생성
 # 리자몽 : 포켓몬스터 생성
 # 리자몽 이(가) 꼬부기 을(를) 공격!
+'''
+'''
+# 객체 지향 설계 원칙 중 리스코프 치환 원칙 :  서브 타입은 언제나 기반(부모) 타입으로 교체할 수 있어야 한다는 원칙
+class Pokemon : # 부모 클래스
+    def __init__(self, name):
+        self.name = name
+
+    def attack(self, target):
+        print(f"{self.name}이(가) {target.name}을(를) 공격!")
+
+class Pikachu(Pokemon): # is-a 관계(=상속관계) # 자식 클래스
+    def __init__(self, name, type):
+        super().__init__(name)
+        self.type = type
+
+    def attack(self, target):
+        print(f"{self.name}이(가) {target.name}을(를) {self.type} 공격!")
+
+    def electric_info(self):
+        print("전기 계열의 공격을 합니다.")
+
+class Squirtl(Pokemon):
+    def attack(self, target):
+        print(f"{self.name}이(가) {target.name}을(를) 물대포 공격!")
+
+class Agumon:
+    pass
+
+p1 = Pikachu('피카츄','전기')
+p2 = Squirtl('꼬부기')
+p3= Pokemon("아무개")
+p1.attack(p2) # 피카츄이(가) 꼬부기을(를) 전기 공격!
+print(p1.name,p1.type)
+'''
+class Animal:
+    def says(self):
+        return 'I speak'
+
+class Horse(Animal):
+    def says(self):
+        return '말소리~'
+class Donkey(Animal):
+    def says(self):
+        return '나귀소리~'
+
+class Mule(Donkey,Horse):
+    pass
+    # def says(self):
+    #     return '노새 노새~'
+class Hinny(Horse,Donkey):
+    # pass
+    def says(self):
+        return '버새 버새~'
+
+m1 = Mule()
+print(m1.says()) # 나귀소리~
+
+h1 = Hinny()
+print(h1.says()) # 버새 버새~
+print(Hinny.__mro__) # 족보의 우선순위를 보여줌
+# (<class '__main__.Hinny'>, <class '__main__.Horse'>, <class '__main__.Donkey'>, <class '__main__.Animal'>, <class 'object'>)
+# 자기자신 - 첫번째 상속 - 두번째 상속 - 상속받은 클래스의 부모 클래스
