@@ -254,25 +254,25 @@ Charizard.attack(c1)
 
 class FlyingMixin:
     def fly(self):
-        return f'{self.name}이(가) 날다~'
+        return f'{self.__name}이(가) 날다~'
 
 class SwimmingMixin:
     def swim(self):
-        return f'{self.name}이(가) 수영을 합니다~'
+        return f'{self.__name}이(가) 수영을 합니다~'
 
 class Pokemon:
     def __init__(self, name):
-        self.hidden_name = name
+        self.__name = name
     def attack(self):
         print('공격!')
     @property
     def name(self):
-        print("inside getter")
-        return self.hidden_name
+        # print("inside getter")
+        return self.__name
     @name.setter
     def name(self, new_name):
-        print("insid setter")
-        self.hidden_name = new_name
+        # print("insid setter")
+        self.__name = new_name
 
     # name = property(get_name, set_name)
 
@@ -283,23 +283,7 @@ class Gyarados(Pokemon, SwimmingMixin):
     pass
 
 g1 = Gyarados('갸라도스')
-c1 = Charizard('리자몽')
-# print(g1.name) # 갸라도스
-# g1.name = "잉어킹"
-# print(g1.name) # 잉어킹
-# print(g1.get_name())
-# # inside getter
-# # 갸라도스
-# g1.set_name("잉어킹")
-# # insid setter
-# print(g1.get_name())
-# # inside getter
-# # 잉어킹
+
 print(g1.name)
-g1.name = "잉어킹"
-print(g1.name)
-# inside getter
-# 갸라도스
-# insid setter
-# inside getter
-# 잉어킹
+# (g1.__name) # 다이렉트 접근 불가
+print(g1._Pokemon__name) # 부모클래스를 통해서 우회하여 출력 가능
