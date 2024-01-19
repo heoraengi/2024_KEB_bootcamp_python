@@ -265,14 +265,16 @@ class Pokemon:
         self.hidden_name = name
     def attack(self):
         print('공격!')
-    def get_name(self):
+    @property
+    def name(self):
         print("inside getter")
         return self.hidden_name
-    def set_name(self, new_name):
+    @name.setter
+    def name(self, new_name):
         print("insid setter")
         self.hidden_name = new_name
 
-    name = property(get_name, set_name)
+    # name = property(get_name, set_name)
 
 class Charizard(Pokemon, FlyingMixin):
     pass
