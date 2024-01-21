@@ -8,16 +8,14 @@ class Poketmon:
         self.skill = skill
 
     def show_poketmon(self):
-        print(f'이름 : {self.name}, 레벨: {self.level}, HP: {self.hp}, 타입: {self.type}, 울음소리: {self.sound}, 기술: {self.skill.attack_name}')
+        print(f'이름 : {self.name}, 레벨: {self.level}, HP: {self.hp}, 타입: {self.type}, 기술: {self.skill.attack_name}')
 
     def attack(self, target):
         print(f'{self.name}이(가) {target.name}에게 {self.skill.attack_name}을(를) 사용합니다.')
+        target.hp -= (self.level * self.skill.attack_power)
 
     def defense(self,target):
         print(f'{self.name}이(가) {target.name}의 공격을(를) 피했습니다.')
-
-    def dance(self):
-        print(f'{self.name}이(가) 승리의 춤을 춥니다.')
 
     def level_up(self):
         self.level +=1
@@ -25,7 +23,7 @@ class Poketmon:
         print(f'{self.name}이(가) 레벨업했습니다!')
 
     def speak(self):
-        return self.sound
+        print(self.sound)
 
 class Skill:
     def __init__(self, attack_name,attack_power, attack_type):
@@ -45,7 +43,7 @@ class Trainer:
         self.poketball = poketball
     def show_poketmon(self):
         for i,poketmon in enumerate(self.poketball):
-            print(f'{i+1}) 이름 : {poketmon.name}, 레벨: {poketmon.level}, HP: {poketmon.hp}, 타입: {poketmon.type}, 울음소리: {poketmon.sound}, 기술: {poketmon.skill.attack_name}')
+            print(f'{i+1}) 이름 : {poketmon.name}, 레벨: {poketmon.level}, HP: {poketmon.hp}, 타입: {poketmon.type}, 기술: {poketmon.skill.attack_name}')
     def use_item(self,poketmon):
         print(f'{self.item.itme_name}을(를) 사용합니다!')
         if self.item.item_type == poketmon.type :
@@ -54,7 +52,6 @@ class Trainer:
             self.item = ''
         else:
             print('아이템 효과가 없습니다.')
-
 
 s1 = Skill('백만볼트', 1, '전기')
 s2 = Skill('물대포', 2, '물')
@@ -83,6 +80,18 @@ i4 = Item('리프의 돌', '풀')
 i5 = Item('무적의 돌', '노말')
 item_list = [i1,i2,i3,i4,i5]
 
+'''
+#####  포켓몬 게임 설명 #####
+해당 게임은 포켓몬 6마리 중에 3마리를 선택해서 모험을 떠난다.
+숲을 이동하면서 야생포켓몬을 만나거나 아이템을 얻을 수 있다. 아이템은 주머니에 딱 하나만 넣을 수 있다.
+야생 포켓몬을 만났을 경우 싸우거나 도망을 칠 수 있다. (단, 도망에 성공할 확률은 50%이며 실패 시 무조건 싸워야 한다.)
+야생 포켓몬과 배틀 중 공격, 방어, 아이템사용 세가지 행동을 취할 수 있다.
+아이템사용의 경우 아이템을 가지고 있는 경우에만 사용 가능하며 
+만약에 내가 가지고 있는 아이템과 내가 선택한 포켓몬 타입이 동일한 경우 기술 공격력이 3배 증가한다.
+야생 포켓몬을 쓰러트리면 포켓몬은 레벨업을 한다.
+야생 포켓몬을 모두 쓰러트린다면 포켓몬 마스터가 되며 게임은 종료된다.
+그럼 행운을 빌겠다!
+'''
 import random
 # 포켓몬 게임 입장 확인
 while True :
@@ -103,7 +112,6 @@ while game == 'y' :
     trainer = Trainer(trainer_name,'', [])
     print(f'{"="*24}오박사의 포켓몬 연구실{"="*24}')
     for num, p in enumerate (poketmon_list):
-        # name, level, hp, type, sound
         print(f'{num+1}) ',end='')
         p.show_poketmon()
     print("="*67)
@@ -150,17 +158,17 @@ while game == 'y' :
                         trainer.show_poketmon()
                         select_poketmon = int(input(f'싸울 포켓몬을 선택하세요 (1~{len(trainer.poketball)}) : '))
                         my_poketmon = trainer.poketball[select_poketmon-1]
+                        print(f'{my_poketmon.name}을(를) 선택했습니다.')
+                        my_poketmon.speak()
                         while True :
                             select = input('1) 공격 2) 방어 3) 아이템 사용 : ')
                             if select == '1':
                                 my_poketmon.attack(wild_poketmon)
-                                wild_poketmon.hp -= (my_poketmon.level * my_poketmon.skill.attack_power)
                                 if wild_poketmon.hp <= 0 :
                                     wild_poketmon.hp = 0
                                 print(f'야생 포켓몬 hp : {wild_poketmon.hp}')
                                 if wild_poketmon.hp <= 0 :
                                     print(f'{wild_poketmon.name}을 쓰러트렸습니다.')
-                                    my_poketmon.dance()
                                     my_poketmon.level_up()
                                     wild_poketmon_list.remove(wild_poketmon)
                                     break
@@ -216,8 +224,5 @@ while game == 'y' :
             print(f'포켓몬 마스터가 되신 걸 축하드립니다!')
             game = 'n'
             break
-
-
-    break
 
 
