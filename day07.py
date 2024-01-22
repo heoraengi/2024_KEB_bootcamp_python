@@ -92,39 +92,40 @@ class Pikachu:
 p1 = Pikachu('피캬츄',100) # LSP
 print(p1.fly_behavior.fly())
 '''
-# import mymath
-# from mymath import *
+
 import mymath as mm
-while True :
-    menu = input("1) Fahrenheit -> Celsius  2) Fahrenheit -> Celsius 3) Prime number 4) Range Prime number  5) Quit program : ")
+print(globals())
+if __name__ == "__main__": # main 구분 해줌
+    while True :
+        menu = input("1) Fahrenheit -> Celsius  2) Fahrenheit -> Celsius 3) Prime number 4) Range Prime number  5) Quit program : ")
 
-    if menu =='1':
-        fahrenheit = float(input('Input Fahrenheit : '))
-        print(
-            f'fahrenheit : {fahrenheit}F, Celsius : {mm.fahrenheit_to_celsius(fahrenheit):.4f}C')
-        # .2f로 소수점 2번쨰자리까지 출력 (f스트링 서식)
-    elif menu == '2':
-        celsius = float(input('Input Celsius : '))
-        print(f'celsius : {celsius}C, Fahrenheit : {mm.celsius_to_fahrenheit(celsius):.4f}F')
-    elif menu == '3':
-        number = int(input("Input number : "))
+        if menu =='1':
+            fahrenheit = float(input('Input Fahrenheit : '))
+            print(
+                f'fahrenheit : {fahrenheit}F, Celsius : {mm.fahrenheit_to_celsius(fahrenheit):.4f}C')
+            # .2f로 소수점 2번쨰자리까지 출력 (f스트링 서식)
+        elif menu == '2':
+            celsius = float(input('Input Celsius : '))
+            print(f'celsius : {celsius}C, Fahrenheit : {mm.celsius_to_fahrenheit(celsius):.4f}F')
+        elif menu == '3':
+            number = int(input("Input number : "))
 
-        if mm.is_prime(number): ## 모듈 불러와서 사용
-            print(f'{number} is prime number')
-        else:
-            print(f'{number} is not prime number')
-    elif menu == '4':
-        numbers = input("Input First Second number : ").split()
-        n1, n2 = int(numbers[0]), int(numbers[1])
-        if n1 > n2:
-            n1, n2 = n2, n1
-
-        for number in range(n1, n2 + 1):
             if mm.is_prime(number): ## 모듈 불러와서 사용
-                print(number, end=' ')
-        print()
-    elif menu == '5':
-        print("Terminate program")
-        break
-    else:
-        print("choose number 1 ~ 5!")
+                print(f'{number} is prime number')
+            else:
+                print(f'{number} is not prime number')
+        elif menu == '4':
+            numbers = input("Input First Second number : ").split()
+            n1, n2 = int(numbers[0]), int(numbers[1])
+            if n1 > n2:
+                n1, n2 = n2, n1
+
+            for number in range(n1, n2 + 1):
+                if mm.is_prime(number): ## 모듈 불러와서 사용
+                    print(number, end=' ')
+            print()
+        elif menu == '5':
+            print("Terminate program")
+            break
+        else:
+            print("choose number 1 ~ 5!")
