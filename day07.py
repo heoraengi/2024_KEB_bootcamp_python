@@ -22,6 +22,10 @@ class Pokemon:
         self.hp = hp
         self.fly_behavior = fly_behavior # aggregation(has-a)
 
+    def set_fly_behavior(self, fly):
+        self.fly_behavior = fly
+
+
     def attack(self):
         print('공격!')
     @property
@@ -43,6 +47,8 @@ class Pokemon:
         # return self.__name + " + " + target.__name
         return  f'두 포켓몬스터 체력의 합은 {self.hp + target.hp}입니다.'
 
+
+
     # name = property(get_name, set_name)
 
 class Charizard(Pokemon):
@@ -52,9 +58,10 @@ class Pikachu(Pokemon):
     pass
 
 nofly = NoFly()
-g1 = Pikachu('피캬츄',100,nofly) # LSP
+p1 = Pikachu('피캬츄',100,nofly) # LSP
 wings= FlyWithWings()
 c1 = Charizard('리자몽',120, wings) # LSP
 print(c1.fly_behavior.fly())
-print(g1.fly_behavior.fly())
-
+print(p1.fly_behavior.fly())
+p1.set_fly_behavior(JetPack())
+print(p1.fly_behavior.fly())
