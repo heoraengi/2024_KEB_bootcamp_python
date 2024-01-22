@@ -66,7 +66,7 @@
 # p1.set_fly_behavior(JetPack())
 # print(p1.fly_behavior.fly())
 
-
+'''
 class FlyingBehavior:
     def fly(self):
         return f'하늘을 날다~'
@@ -91,4 +91,39 @@ class Pikachu:
 
 p1 = Pikachu('피캬츄',100) # LSP
 print(p1.fly_behavior.fly())
+'''
+import mymath
 
+while True :
+    menu = input("1) Fahrenheit -> Celsius  2) Fahrenheit -> Celsius 3) Prime number 4) Range Prime number  5) Quit program : ")
+
+    if menu =='1':
+        fahrenheit = float(input('Input Fahrenheit : '))
+        print(
+            f'fahrenheit : {fahrenheit}F, Celsius : {((fahrenheit - 32.0) * 5.0 / 9.0):.4f}C')
+        # .2f로 소수점 2번쨰자리까지 출력 (f스트링 서식)
+    elif menu == '2':
+        celsius = float(input('Input Celsius : '))
+        print(f'celsius : {celsius}C, Fahrenheit : {((celsius*9.0/5.0)+32.0):.4f}F')
+    elif menu == '3':
+        number = int(input("Input number : "))
+
+        if mymath.is_prime(number):
+            print(f'{number} is prime number')
+        else:
+            print(f'{number} is not prime number')
+    elif menu == '4':
+        numbers = input("Input First Second number : ").split()
+        n1, n2 = int(numbers[0]), int(numbers[1])
+        if n1 > n2:
+            n1, n2 = n2, n1
+
+        for number in range(n1, n2 + 1):
+            if mymath.is_prime(number):
+                print(number, end=' ')
+        print()
+    elif menu == '5':
+        print("Terminate program")
+        break
+    else:
+        print("choose number 1 ~ 5!")
