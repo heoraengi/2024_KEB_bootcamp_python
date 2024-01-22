@@ -83,12 +83,12 @@ class FlyWithWings(FlyingBehavior):
         return f'날개로 하늘을 훨훨 날아갑니다.'
 
 class Pikachu:
-    def __init__(self,name,hp,fly):
+    def __init__(self,name,hp):
         self.name = name
         self.hp = hp
-        self.fly_behavior = fly # aggreagation
+        self.fly_behavior = NoFly() # composition
 
-nofly = NoFly()
-p1 = Pikachu('피캬츄',100,nofly) # LSP
+
+p1 = Pikachu('피캬츄',100) # LSP
 print(p1.fly_behavior.fly())
 
