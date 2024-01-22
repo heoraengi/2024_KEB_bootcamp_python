@@ -100,7 +100,7 @@ while True :
     if menu =='1':
         fahrenheit = float(input('Input Fahrenheit : '))
         print(
-            f'fahrenheit : {fahrenheit}F, Celsius : {((fahrenheit - 32.0) * 5.0 / 9.0):.4f}C')
+            f'fahrenheit : {fahrenheit}F, Celsius : {mymath.fahrenheit_to_celsius(fahrenheit):.4f}C')
         # .2f로 소수점 2번쨰자리까지 출력 (f스트링 서식)
     elif menu == '2':
         celsius = float(input('Input Celsius : '))
@@ -108,7 +108,7 @@ while True :
     elif menu == '3':
         number = int(input("Input number : "))
 
-        if mymath.is_prime(number):
+        if mymath.is_prime(number): ## 모듈 불러와서 사용
             print(f'{number} is prime number')
         else:
             print(f'{number} is not prime number')
@@ -119,7 +119,7 @@ while True :
             n1, n2 = n2, n1
 
         for number in range(n1, n2 + 1):
-            if mymath.is_prime(number):
+            if mymath.is_prime(number): ## 모듈 불러와서 사용
                 print(number, end=' ')
         print()
     elif menu == '5':
