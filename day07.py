@@ -92,19 +92,19 @@ class Pikachu:
 p1 = Pikachu('피캬츄',100) # LSP
 print(p1.fly_behavior.fly())
 '''
-import mymath
-
+# import mymath
+from mymath import *
 while True :
     menu = input("1) Fahrenheit -> Celsius  2) Fahrenheit -> Celsius 3) Prime number 4) Range Prime number  5) Quit program : ")
 
     if menu =='1':
         fahrenheit = float(input('Input Fahrenheit : '))
         print(
-            f'fahrenheit : {fahrenheit}F, Celsius : {mymath.fahrenheit_to_celsius(fahrenheit):.4f}C')
+            f'fahrenheit : {fahrenheit}F, Celsius : {fahrenheit_to_celsius(fahrenheit):.4f}C')
         # .2f로 소수점 2번쨰자리까지 출력 (f스트링 서식)
     elif menu == '2':
         celsius = float(input('Input Celsius : '))
-        print(f'celsius : {celsius}C, Fahrenheit : {mymath.celsius_to_fahrenheit(celsius):.4f}F')
+        print(f'celsius : {celsius}C, Fahrenheit : {celsius_to_fahrenheit(celsius):.4f}F')
     elif menu == '3':
         number = int(input("Input number : "))
 
@@ -119,7 +119,7 @@ while True :
             n1, n2 = n2, n1
 
         for number in range(n1, n2 + 1):
-            if mymath.is_prime(number): ## 모듈 불러와서 사용
+            if is_prime(number): ## 모듈 불러와서 사용
                 print(number, end=' ')
         print()
     elif menu == '5':
