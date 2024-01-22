@@ -16,6 +16,7 @@ class Poketmon:
 
     def defense(self,target):
         print(f'{self.name}이(가) {target.name}의 공격을(를) 피했습니다.')
+        self.hp += (target.level * target.skill.attack_power)
 
     def level_up(self):
         self.level +=1
@@ -164,14 +165,6 @@ while game == 'y' :
                             select = input('1) 공격 2) 방어 3) 아이템 사용 : ')
                             if select == '1':
                                 my_poketmon.attack(wild_poketmon)
-                                if wild_poketmon.hp <= 0 :
-                                    wild_poketmon.hp = 0
-                                print(f'야생 포켓몬 hp : {wild_poketmon.hp}')
-                                if wild_poketmon.hp <= 0 :
-                                    print(f'{wild_poketmon.name}을 쓰러트렸습니다.')
-                                    my_poketmon.level_up()
-                                    wild_poketmon_list.remove(wild_poketmon)
-                                    break
                             elif select == '2':
                                 my_poketmon.defense(wild_poketmon)
                             elif select =='3' :
@@ -181,6 +174,30 @@ while game == 'y' :
                                     print('아이템이 없습니다.')
                             else :
                                 print('1~3 중에서 선택하세요!')
+
+                            # 야생포켓몬 공격 및 방어 선택
+                            random_attack = random.randint(0, 1)
+                            if random_attack == 0:
+                                wild_poketmon.attack(my_poketmon)
+                            else:
+                                wild_poketmon.defense(my_poketmon)
+
+                            if wild_poketmon.hp <= 0:
+                                wild_poketmon.hp = 0
+                            elif my_poketmon.hp <= 0:
+                                my_poketmon.hp = 0
+                            print(f'야생 포켓몬 hp : {wild_poketmon.hp}')
+                            # 수정된 부분
+                            print(f'나의 포켓몬 hp : {my_poketmon.hp}')
+                            if wild_poketmon.hp <= 0:
+                                print(f'{wild_poketmon.name}을 쓰러트렸습니다.')
+                                my_poketmon.level_up()
+                                wild_poketmon_list.remove(wild_poketmon)
+                                break
+                            elif my_poketmon.hp <= 0:
+                                print(f'{my_poketmon.name}을 쓰러졌습니다ㅠ.')
+                                trainer.poketball.remove(my_poketmon)
+                                break
 
                     else :
                         escape = random.randint(0,1)
