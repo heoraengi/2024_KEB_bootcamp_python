@@ -104,7 +104,7 @@ while True :
         # .2f로 소수점 2번쨰자리까지 출력 (f스트링 서식)
     elif menu == '2':
         celsius = float(input('Input Celsius : '))
-        print(f'celsius : {celsius}C, Fahrenheit : {((celsius*9.0/5.0)+32.0):.4f}F')
+        print(f'celsius : {celsius}C, Fahrenheit : {mymath.celsius_to_fahrenheit(celsius):.4f}F')
     elif menu == '3':
         number = int(input("Input number : "))
 
